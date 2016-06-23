@@ -1,0 +1,34 @@
+{
+  "name": "pokedex",
+  "description": "Pokedex application to use AngularJS, GulpJS, Bower, Karma, Jasmine,",
+  "main": "index.js",
+  "authors": [
+    "Jerry Garcia"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "jerry",
+    "angular",
+    "pokemon",
+    "gulp",
+    "karma",
+    "jasmine"
+  ],
+  "homepage": "https://github.com/jerrygarciab/pokedex",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.5.7",
+    "angular-mocks": "^1.5.7",
+    "foundation-sites": "^6.2.3",
+    "jquery": "^3.0.0"
+  },
+  "resolutions": {
+    "jquery": "~2.2.0"
+  }
+}

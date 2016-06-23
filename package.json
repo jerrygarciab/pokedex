@@ -1,0 +1,39 @@
+{
+  "name": "pokedex",
+  "version": "1.0.0",
+  "description": "Pokedex application to use AngularJS, GulpJS, Bower, Karma, Jasmine, ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jerrygarciab/pokedex.git"
+  },
+  "keywords": [
+    "jerry",
+    "angular",
+    "pokemon",
+    "gulp",
+    "karma",
+    "jasmine"
+  ],
+  "author": "Jerry Garcia",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jerrygarciab/pokedex/issues"
+  },
+  "homepage": "https://github.com/jerrygarciab/pokedex#readme",
+  "dependencies": {
+    "bower": "^1.7.9",
+    "gulp": "^3.9.1"
+  },
+  "devDependencies": {
+    "istanbul": "^0.4.4",
+    "jasmine": "^2.4.1",
+    "karma": "^0.13.22",
+    "karma-chrome-launcher": "^1.0.1",
+    "karma-jasmine": "^1.0.2",
+    "karma-phantomjs-launcher": "^1.0.0"
+  }
+}
