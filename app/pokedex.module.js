@@ -1,5 +1,7 @@
 (function(){})(
   'use strict';
 
-  angular.module('pokedex', []);
+  angular.module('pokedex', [
+    'ngMock'
+  ]);
 );
