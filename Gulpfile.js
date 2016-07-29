@@ -1,5 +1,6 @@
 // -- Variable Inizialitaion --
 var gulp = require('gulp');
+var livereload = require('gulp-livereload');
 var Server = require('karma').Server;
 var istanbul = require('gulp-istanbul');
 var sass = require('gulp-sass');
@@ -14,12 +15,12 @@ var inject = require('gulp-inject');
 
 ///// -- Main Tasks --
 //Run Application in Dev
-gulp.task('serve', ['watch'], function () {
-  browserSync.init({
-    server: {
-      baseDir: 'app'
-    }
+gulp.task('serve', function () {
+  livereload.listen({
+    port: 3000
   });
+  gulp.watch('assets/**/*.js');
+  gulp.watch('assets/**/*.html');
 });
 
 //Build Application for Prod
