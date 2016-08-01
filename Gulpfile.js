@@ -10,12 +10,13 @@ var minifyHTML = require('gulp-minify-html');
 var minifyCSS = require('gulp-minify-css');
 var uglify = require('gulp-uglify');
 var ngAnnotate = require('gulp-ng-annotate');
-var wiredep = require('wiredep').stream;
+var wiredep = require('wiredep');
 var inject = require('gulp-inject');
 
 ///// -- Main Tasks --
+
 //Run Application in Dev
-gulp.task('serve', function () {
+gulp.task('serve', ['index'], function () {
   livereload.listen({
     port: 3000
   });
@@ -23,8 +24,14 @@ gulp.task('serve', function () {
   gulp.watch('assets/**/*.html');
 });
 
-//Build Application for Prod
-gulp.task('build-prod', ['build-scss', 'jshint', 'minify-html', 'minify-css', 'minify-js']);
+//Run Application in Dev with jshint and tests
+gulp.task('serve', ['index', 'test'], function () {
+  livereload.listen({
+    port: 3000
+  });
+  gulp.watch('assets/**/*.js');
+  gulp.watch('assets/**/*.html');
+});
 
 //Test Main Task
 gulp.task('test', ['pre-test', 'test-karma'], function () {
@@ -33,29 +40,61 @@ gulp.task('test', ['pre-test', 'test-karma'], function () {
     .pipe(istanbul.enforceThresholds({ thresholds: { global: 90 } })));
 });
 
-//Run Application in prod-mode
-//TODO Add task for running with the dist folder
 
 ///// -- Auxiliar Tasks --
+
+//Store Vendor scripts
+gulp.task('vendor-scripts', function () {
+  return gulp.src(wiredep().js)
+    .pipe(gulp.dest('app/vendor'));
+});
+
+//Store Vendor css
+gulp.task('vendor-css', function () {
+  return gulp.src(wiredep().css)
+    .pipe(gulp.dest('app/vendor'));
+});
+
 //Watch Task
 gulp.task('watch', function () {
   gulp.watch('app/**/*.js', ['bower', 'inject-files', 'jshint']);
   gulp.watch('app/**/*.scss', ['build-scss']);
 });
 
-//Inject bower files task
-gulp.task('bower', function () {
-  gulp.src('app/index.html')
-    .pipe(wiredep())
-    .pipe(gulp.dest('app/index.html'));
-});
-
-//Inject css and js files
-gulp.task('inject-files', function () {
-  return gulp.src('./app/index.html')
-    .pipe(
-      inject(gulp.src(['./app/**/*.js', '.app/**/*.css'], {read: false}))
-    );
+//Process the index.html file to add bower dependencies and local ones
+gulp.task('index', ['vendor-scripts', 'vendor-css'], function () {
+  return gulp.src('app/index.html')
+    .pipe(wiredep.stream({
+      fileTypes: {
+        html: {
+          replace: {
+            js: function (filePath) {
+              return '<script src="' + 'vendor/' + filePath.split('/').pop() + '""></script>';
+            },
+            css: function (filePath) {
+              return '<link rel="stylesheet" href="' + 'vendor/' + filePath.split('/').pop() + '" />';
+            }
+          }
+        }
+      }
+    }))
+    .pipe(inject(
+      gulp.src(['app/**/*.js'], {read: false}), {
+        addRootSlash: false,
+        transform: function (filePath, file, i, length) {
+          return '<script src="' + filePath.replace('app/', '') + '"></script>';
+        }
+      }
+    ))
+    .pipe(inject(
+      gulp.src(['app/assets/**/*.css'], {read: false}), {
+        addRootSlash: false,
+        transform: function (filePath, file, i, length) {
+          return '<link rel="stylesheet" href="' + filePath.replace('app/', '') + '" />';
+        }
+      }
+    ))
+    .pipe(gulp.dest('build'));
 });
 
 //Pre test task coverage with istanbul
