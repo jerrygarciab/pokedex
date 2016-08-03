@@ -1,6 +1,5 @@
 // -- Variable Inizialitaion --
 var gulp = require('gulp');
-var livereload = require('gulp-livereload');
 var webserver = require('gulp-webserver');
 var debug = require('gulp-debug');
 var Server = require('karma').Server;
@@ -22,18 +21,8 @@ gulp.task('serve', ['build-scss', 'index'], function () {
   gulp.src('app')
     .pipe(webserver({
       port: 3000,
-      livereload: {
-        enable: true,
-        filter: function (fileName) {
-          if (fileName.match(/.html$/)) {
-            return false;
-          } else {
-            return true;
-          }
-        }
-      },
-      open: true,
-      fallback: 'app/index.html'
+      livereload: true,
+      open: true
     }));
 });
 
@@ -42,14 +31,7 @@ gulp.task('serve-dev', ['build-scss', 'index', 'test'], function () {
   gulp.src('app')
     .pipe(webserver({
       port: 3000,
-      livereload: {
-        enable: true,
-        filter: function (fileName) {
-          //files to watch
-          return true;
-        }
-      },
-      directoryListing: true,
+      livereload: true,
       open: true
     }));
 });
