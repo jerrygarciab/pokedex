@@ -1,6 +1,8 @@
 // -- Variable Inizialitaion --
 var gulp = require('gulp');
 var livereload = require('gulp-livereload');
+var webserver = require('gulp-webserver');
+var debug = require('gulp-debug');
 var Server = require('karma').Server;
 var istanbul = require('gulp-istanbul');
 var sass = require('gulp-sass');
@@ -16,21 +18,40 @@ var inject = require('gulp-inject');
 ///// -- Main Tasks --
 
 //Run Application in Dev
-gulp.task('serve', ['index'], function () {
-  livereload.listen({
-    port: 3000
-  });
-  gulp.watch('assets/**/*.js');
-  gulp.watch('assets/**/*.html');
+gulp.task('serve', ['build-scss', 'index'], function () {
+  gulp.src('app')
+    .pipe(webserver({
+      port: 3000,
+      livereload: {
+        enable: true,
+        filter: function (fileName) {
+          if (fileName.match(/.html$/)) {
+            return false;
+          } else {
+            return true;
+          }
+        }
+      },
+      open: true,
+      fallback: 'app/index.html'
+    }));
 });
 
-//Run Application in Dev with jshint and tests
-gulp.task('serve', ['index', 'test'], function () {
-  livereload.listen({
-    port: 3000
-  });
-  gulp.watch('assets/**/*.js');
-  gulp.watch('assets/**/*.html');
+//Run Application in Dev with jshint and tests TODO Add jshint
+gulp.task('serve-dev', ['build-scss', 'index', 'test'], function () {
+  gulp.src('app')
+    .pipe(webserver({
+      port: 3000,
+      livereload: {
+        enable: true,
+        filter: function (fileName) {
+          //files to watch
+          return true;
+        }
+      },
+      directoryListing: true,
+      open: true
+    }));
 });
 
 //Test Main Task
@@ -55,12 +76,6 @@ gulp.task('vendor-css', function () {
     .pipe(gulp.dest('app/vendor'));
 });
 
-//Watch Task
-gulp.task('watch', function () {
-  gulp.watch('app/**/*.js', ['bower', 'inject-files', 'jshint']);
-  gulp.watch('app/**/*.scss', ['build-scss']);
-});
-
 //Process the index.html file to add bower dependencies and local ones
 gulp.task('index', ['vendor-scripts', 'vendor-css'], function () {
   return gulp.src('app/index.html')
@@ -79,7 +94,7 @@ gulp.task('index', ['vendor-scripts', 'vendor-css'], function () {
       }
     }))
     .pipe(inject(
-      gulp.src(['app/**/*.js'], {read: false}), {
+      gulp.src(['app/**/*.js', '!app/vendor/**/*.js'], {read: false}), {
         addRootSlash: false,
         transform: function (filePath, file, i, length) {
           return '<script src="' + filePath.replace('app/', '') + '"></script>';
@@ -94,7 +109,7 @@ gulp.task('index', ['vendor-scripts', 'vendor-css'], function () {
         }
       }
     ))
-    .pipe(gulp.dest('build'));
+    .pipe(gulp.dest('app'));
 });
 
 //Pre test task coverage with istanbul
@@ -155,10 +170,7 @@ gulp.task('jshint', function () {
 
 //Sass Compilation Task
 gulp.task('build-scss', function () {
-  return gulp.src('assets/**/*.scss')
-    .pipe(sass().on('error', sass.logError))
-    .pipe(gulp.dest('assets/styles/css'))
-    pipe(browserSync.reload({
-      stream: true
-    }));
+  return gulp.src('app/assets/**/*.scss')
+    .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
+    .pipe(gulp.dest('app/assets/css'));
 });

@@ -30,6 +30,7 @@
   },
   "devDependencies": {
     "browser-sync": "^2.13.0",
+    "gulp-debug": "^2.1.2",
     "gulp-inject": "^4.1.0",
     "gulp-istanbul": "^1.0.0",
     "gulp-jshint": "^2.0.1",
@@ -39,6 +40,7 @@
     "gulp-ng-annotate": "^2.0.0",
     "gulp-sass": "^2.3.2",
     "gulp-uglify": "^1.5.4",
+    "gulp-webserver": "^0.9.1",
     "istanbul": "^0.4.4",
     "jasmine": "^2.4.1",
     "jshint": "^2.9.2",
