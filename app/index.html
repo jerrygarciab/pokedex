@@ -1,8 +1,10 @@
 <html ng-app="pokedex">
 <head>
-  <title></title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Pokédex</title>
   <!-- bower:css -->
-  <link rel="stylesheet" href="vendor/foundation.css" />
+  <link rel="stylesheet" href="vendor/bootstrap.css" />
   <!-- endbower -->
 
   <!-- inject:css -->
@@ -10,16 +12,23 @@
   <!-- endinject -->
 </head>
 <body>
-  <p>Hello, World!</p>
+  <!-- Main Content -->
+  <div class="main-container container">
+    <div ui-view></div>
+  </div>
   <!-- bower:js -->
   <script src="vendor/angular.js""></script>
   <script src="vendor/angular-mocks.js""></script>
   <script src="vendor/jquery.js""></script>
-  <script src="vendor/what-input.js""></script>
+  <script src="vendor/angular-ui-router.js""></script>
+  <script src="vendor/tether.js""></script>
   <!-- endbower -->
 
   <!-- inject:js -->
   <script src="pokedex.module.js"></script>
+  <script src="pokedex.routes.js"></script>
+  <script src="main-list/main-list.controller.js"></script>
+  <script src="intro/intro.controller.js"></script>
   <!-- endinject -->
 </body>
 </html>

@@ -1,3 +1,17 @@
-p {
-  font-weight: bold;
+@import 'bower_components/bootstrap/scss/bootstrap.scss';
+@import 'bower_components/bootstrap/scss/_variables.scss';
+@import 'bower_components/bootstrap/scss/_mixins.scss';
+
+@import 'app/assets/css/styles/main-custom.scss';
+@import 'app/intro/intro.scss';
+
+$main-color: #E91E63;
+$main-color-dark: #C2185B;
+$main-white: #e6e6e6;
+$main-white-dark: #d9d9d9;
+$font-family: 'Helvetica, Arial';
+
+body {
+  background-color: $main-color;
+  font-family: $font-family;
 }

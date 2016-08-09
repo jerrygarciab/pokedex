@@ -6,7 +6,6 @@ var Server = require('karma').Server;
 var istanbul = require('gulp-istanbul');
 var sass = require('gulp-sass');
 var jshint = require('gulp-jshint');
-var browserSync = require('browser-sync').create();
 var minifyHTML = require('gulp-minify-html');
 var minifyCSS = require('gulp-minify-css');
 var uglify = require('gulp-uglify');
@@ -24,6 +23,9 @@ gulp.task('serve', ['build-scss', 'index'], function () {
       livereload: true,
       open: true
     }));
+
+    gulp.watch('app/**/*.scss', ['build-scss']);
+    gulp.watch('app/**/*.js', ['serve']);
 });
 
 //Run Application in Dev with jshint and tests TODO Add jshint
@@ -34,6 +36,9 @@ gulp.task('serve-dev', ['build-scss', 'index', 'test'], function () {
       livereload: true,
       open: true
     }));
+
+    gulp.watch('app/**/*.scss', ['build-scss']);
+    gulp.watch('app/**/*.js', ['serve']);
 });
 
 //Test Main Task

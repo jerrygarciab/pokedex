@@ -1,0 +1,16 @@
+/* Variables */
+
+$main-color: #E91E63;
+$main-color-dark: #C2185B;
+$main-white: #e6e6e6;
+$main-white-dark: #d9d9d9;
+$font-family: 'Helvetica, Arial';
+
+/*Centering the login */
+.intro {
+  position: absolute;
+  top: 50%;
+  left:50%;
+  transform: translate(-50%,-50%);
+  width: 75%;
+}

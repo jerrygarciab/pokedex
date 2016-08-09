@@ -1,0 +1,35 @@
+@import 'bower_components/bootstrap/scss/bootstrap.scss';
+@import 'bower_components/bootstrap/scss/_variables.scss';
+@import 'bower_components/bootstrap/scss/_mixins.scss';
+
+$main-color: #E91E63;
+$main-color-dark: #C2185B;
+$main-white: #e6e6e6;
+$main-white-dark: #d9d9d9;
+$font-family: 'Helvetica, Arial';
+
+/* Pokedex custom buttons */
+.btn-pokedex {
+  /* text color, background, border */
+  @include button-variant($main-white, $main-color, $main-white);
+}
+
+.btn-pokedex:hover {
+  /* text color, background, border */
+  @include button-variant($main-white-dark, $main-color-dark, $main-white-dark);
+}
+
+.btn-pokedex:focus, .btn-pokedex.focus {
+  /* text color, background, border */
+  @include button-variant($main-color, $main-white, $main-color);
+}
+
+.btn-pokedex.disabled:focus, .btn-pokedex.disabled.focus, .btn-pokedex:disabled:focus {
+  /* text color, background, border */
+  @include button-variant($main-white-dark, $main-color-dark, $main-white-dark);
+}
+
+.btn-pokedex.disabled:hover, .btn-pokedex:disabled:hover {
+  /* text color, background, border */
+  @include button-variant($main-white-dark, $main-color-dark, $main-white-dark);
+}
