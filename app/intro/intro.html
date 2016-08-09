@@ -4,7 +4,9 @@
   </div>
   <div class="row">
     <div class="col-sm-4">
-      <button ng-disabled="!intro.availability.pokedex" class="btn btn-pokedex btn-block">Pokédex</button>
+      <button ng-disabled="!intro.availability.pokedex"
+      class="btn btn-pokedex btn-block"
+      ng-click="intro.goToPokedex()" >Pokédex</button>
     </div>
     <div class="col-sm-4">
       <button ng-disabled="!intro.availability.ev"  class="btn btn-pokedex btn-block">EV Trainer</button>
