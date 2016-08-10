@@ -20,7 +20,7 @@
         url: '/intro',
         templateUrl: 'intro/intro.html',
         controller: 'introCtrl',
-        controllerAs: 'intro'
+        controllerAs: 'intro',
       })
       .state('main-list', {
         url: '/main-list',

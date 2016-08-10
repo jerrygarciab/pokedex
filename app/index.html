@@ -12,9 +12,9 @@
   <link rel="stylesheet" href="assets/css/styles/main.css" />
   <!-- endinject -->
 </head>
-<body>
+<body ng-class="$state.current.data.bodyClass">
   <!-- Main Content -->
-  <div class="main-container container">
+  <div class="container">
     <div ui-view></div>
   </div>
   <!-- bower:js -->

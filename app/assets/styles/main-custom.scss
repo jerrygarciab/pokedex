@@ -1,3 +1,7 @@
+@import 'bower_components/bootstrap/scss/bootstrap.scss';
+@import 'bower_components/bootstrap/scss/_variables.scss';
+@import 'bower_components/bootstrap/scss/_mixins.scss';
+
 $main-color: #E91E63;
 $main-color-dark: #C2185B;
 $main-white: #e6e6e6;
@@ -28,4 +32,16 @@ $font-family: 'Helvetica, Arial';
 .btn-pokedex.disabled:hover, .btn-pokedex:disabled:hover {
   /* text color, background, border */
   @include button-variant($main-white-dark, $main-color-dark, $main-white-dark);
+}
+
+/* Nav bar custom color */
+.navbar {
+  background-color: $main-color;
+  border-color: $main-color-dark;
+  color: $main-white;
+}
+
+/* title */
+.navbar .navbar-brand {
+    color: $main-white;
 }
