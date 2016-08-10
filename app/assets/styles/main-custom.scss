@@ -6,7 +6,7 @@ $main-color: #E91E63;
 $main-color-dark: #C2185B;
 $main-white: #e6e6e6;
 $main-white-dark: #d9d9d9;
-$font-family: 'Helvetica, Arial';
+$font-family-head: 'pokemonHead';
 
 /* Pokedex custom buttons */
 .btn-pokedex {
@@ -38,10 +38,27 @@ $font-family: 'Helvetica, Arial';
 .navbar {
   background-color: $main-color;
   border-color: $main-color-dark;
-  color: $main-white;
+  font-family: $font-family-head;
+  font-size: 24px;
 }
 
-/* title */
+.navbar .navbar-nav > li > a {
+  color: $main-white !important;
+}
+
+.navbar .navbar-nav > li > a {
+  color: $main-white !important;
+}
+
+.navbar .navbar-nav > li > a:hover {
+  background-color: darken($main-color, 2%);
+  color: darken($main-white, 5%) !important;
+}
+
+.navbar .navbar-nav > .active > a {
+  color: darken($main-white, 20%) !important;
+}
+
 .navbar .navbar-brand {
     color: $main-white;
 }

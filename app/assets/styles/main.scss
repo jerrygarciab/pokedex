@@ -1,11 +1,33 @@
 @import 'app/intro/intro.scss';
+@import 'app/main-list/main-list.scss';
 
 $main-color: #E91E63;
 $main-color-dark: #C2185B;
 $main-white: #e6e6e6;
 $main-white-dark: #d9d9d9;
 $font-family: 'Helvetica, Arial';
+$font-family-head: 'pokemonHead';
+$font-family-text: 'pokemonBody';
+
+@font-face {
+  font-family: pokemonBody;
+  src: url('../../fonts/Pokemon-GB.ttf');
+}
+
+@font-face {
+  font-family: pokemonHead;
+  src: url('../../fonts/Pocket-Monk.otf') format('opentype');
+}
 
 body {
-  font-family: $font-family;
+  font-family: $font-family-text;
+}
+
+/* Directives */
+
+#img-pokeball {
+  height: 40%;
+  margin-top: 3px;
+  margin-left: -12px;
+  position: absolute;
 }
