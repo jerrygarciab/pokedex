@@ -20,7 +20,14 @@ $font-family-text: 'pokemonBody';
 }
 
 body {
+  padding-top: 6%;
   font-family: $font-family-text;
+}
+
+@media screen and (max-width: 768px) {
+    body {
+      padding-top: 15%;
+    }
 }
 
 /* Directives */

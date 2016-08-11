@@ -7,3 +7,34 @@ $font-family: 'Helvetica, Arial';
 .btn-menu {
   color: $main-white;
 }
+
+#main-list-table {
+  border-collapse: collapse;
+}
+
+#main-list-table > div > table > tbody > tr > td {
+  word-break: break-all;
+  text-align:center;
+  vertical-align:middle;
+}
+
+#main-list-table > div > table > tbody > tr > td > div {
+  display: inline;
+}
+
+#main-list-table > div > table > tbody > tr > td > p > span {
+  font-size: 8px;
+}
+
+#main-list-table > div > table {
+  width: 100%;
+}
+
+@media screen and (max-width: 768px) {
+  .table-responsive {
+  }
+
+  #main-list-table > div > table > tbody > tr > td {
+    font-size: 10px;
+  }
+}
