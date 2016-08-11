@@ -6,6 +6,24 @@ $main-color: #E91E63;
 $main-color-dark: #C2185B;
 $main-white: #e6e6e6;
 $main-white-dark: #d9d9d9;
+$tag-grass: #97D077;
+$tag-poison: #A680B8;
+$tag-bug: #67AB9F;
+$tag-fire: #FF8000;
+$tag-fighting: #E65C5C;
+$tag-dragon: #7F628C;
+$tag-water: #3399FF;
+$tag-steel: #999999;
+$tag-ice: #8AE6E6;
+$tag-electric: #E6C35C;
+$tag-normal: #FFCC99;
+$tag-psychic: #FF66B3;
+$tag-fairy: #A341A3;
+$tag-dark: #964542;
+$tag-ghost: #A680B8;
+$tag-rock: #A37448;
+$tag-ground: #BDA971;
+$tag-flying: #D5BEED;
 $font-family-head: 'pokemonHead';
 
 /* Firefox fix */
@@ -70,4 +88,78 @@ $font-family-head: 'pokemonHead';
 
 .navbar .navbar-brand {
     color: $main-white;
+}
+
+/* Custom Tags */
+
+.tag-grass {
+  background-color: $tag-grass;
+}
+
+.tag-poison {
+  background-color: $tag-poison;
+}
+
+.tag-bug {
+  background-color: $tag-bug;
+}
+
+.tag-fire {
+  background-color: $tag-fire;
+}
+
+.tag-fighting {
+  background-color: $tag-fighting;
+}
+
+.tag-dragon {
+  background-color: $tag-dragon;
+}
+
+.tag-water {
+  background-color: $tag-water;
+}
+
+.tag-steel {
+  background-color: $tag-steel;
+}
+
+.tag-ice {
+  background-color: $tag-ice;
+}
+
+.tag-electric {
+  background-color: $tag-electric;
+}
+
+.tag-normal {
+  background-color: $tag-normal;
+}
+
+.tag-psychic {
+  background-color: $tag-psychic;
+}
+
+.tag-fairy {
+  background-color: $tag-fairy;
+}
+
+.tag-dark {
+  background-color: $tag-dark;
+}
+
+.tag-ghost {
+  background-color: $tag-ghost;
+}
+
+.tag-rock {
+  background-color: $tag-rock;
+}
+
+.tag-ground {
+  background-color: $tag-ground;
+}
+
+.tag-flying {
+  background-color: $tag-flying;
 }

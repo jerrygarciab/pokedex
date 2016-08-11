@@ -4,14 +4,14 @@
     <table class="table">
       <tbody>
         <tr>
-          <td style="width: 25%">
+          <td>
             <img class="img-fluid m-x-auto d-block img-thumbnail" src="http://pokeapi.co/media/sprites/pokemon/4.png" alt="Charmander">
           </td>
-          <td style="width: 40%">
+          <td>
             <p>Charmander</p>
-            <p><span class="tag tag-danger">Fire</span></p>
+            <p><type-tag type-name="Fire"></type-tag></p>
           </td>
-          <td style="width: 35%;">
+          <td>
             <div style="float:right;">
               #004
               <br><br><br>
@@ -21,14 +21,14 @@
           </td>
         </tr>
         <tr>
-          <td style="width: 25%">
+          <td>
             <img class="img-fluid m-x-auto d-block img-thumbnail" src="http://pokeapi.co/media/sprites/pokemon/5.png" alt="Charmander">
           </td>
-          <td style="width: 40%">
+          <td>
             <p>Charmeleon</p>
-            <p><span class="tag tag-danger">Fire</span></p>
+            <p><type-tag type-name="Fire"></type-tag></p>
           </td>
-          <td style="width: 35%;">
+          <td>
             <div style="float:right;">
               #005
               <br><br><br>
@@ -38,14 +38,14 @@
           </td>
         </tr>
         <tr>
-          <td style="width: 25%">
+          <td>
             <img class="img-fluid m-x-auto d-block img-thumbnail" src="http://pokeapi.co/media/sprites/pokemon/6.png" alt="Charmander">
           </td>
-          <td style="width: 40%">
+          <td>
             <p>Charizard</p>
-            <p><span class="tag tag-danger">Fire</span><span class="tag tag-warning">Dragon</span></p>
+            <p ng-repeat="pokeType in types"><type-tag type-name="{{pokeType}}"></type-tag></p>
           </td>
-          <td style="width: 35%;">
+          <td>
             <div style="float:right;">
               #006
               <br><br><br>

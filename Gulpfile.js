@@ -25,7 +25,7 @@ gulp.task('serve', ['build-scss', 'index'], function () {
     }));
 
     gulp.watch('app/**/*.scss', ['build-scss']);
-    gulp.watch('app/**/*.js', ['serve']);
+    gulp.watch('app/**/*.js', ['vendor-scripts']);
 });
 
 //Run Application in Dev with jshint and tests TODO Add jshint
@@ -38,7 +38,7 @@ gulp.task('serve-dev', ['build-scss', 'index', 'test'], function () {
     }));
 
     gulp.watch('app/**/*.scss', ['build-scss']);
-    gulp.watch('app/**/*.js', ['serve']);
+    gulp.watch('app/**/*.js', ['vendor-scripts']);
 });
 
 //Test Main Task

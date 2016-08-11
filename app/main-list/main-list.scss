@@ -16,6 +16,7 @@ $font-family: 'Helvetica, Arial';
   word-break: break-all;
   text-align:center;
   vertical-align:middle;
+  font-size: 20px;
 }
 
 #main-list-table > div > table > tbody > tr > td > div {
@@ -26,12 +27,17 @@ $font-family: 'Helvetica, Arial';
   font-size: 8px;
 }
 
+#main-list-table > div > table > tbody > tr > td > img {
+  width: 45%;
+}
+
 #main-list-table > div > table {
   width: 100%;
 }
 
 @media screen and (max-width: 768px) {
-  .table-responsive {
+  #main-list-table > div > table > tbody > tr > td > img {
+    width: 90%;
   }
 
   #main-list-table > div > table > tbody > tr > td {
