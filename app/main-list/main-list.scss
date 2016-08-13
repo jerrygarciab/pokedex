@@ -31,10 +31,6 @@ $font-family: 'Helvetica, Arial';
   width: 45%;
 }
 
-#main-list-table > div > table > tbody > tr > td > div > .m-x-auto {
-  width: 2em;
-}
-
 #main-list-table > div > table {
   width: 100%;
 }
@@ -47,4 +43,25 @@ $font-family: 'Helvetica, Arial';
   #main-list-table > div > table > tbody > tr > td {
     font-size: 10px;
   }
+}
+
+/* Directives */
+.favorite-pkmn-image {
+  content:url(../../img/star.svg);
+  width: 2em;
+}
+
+.favorite-pkmn-image-selected {
+  content:url(../../img/star-selected.svg);
+  width: 2em;
+}
+
+.caught-image {
+  content:url(../../img/pokeball-icon.svg);
+  width: 2em;
+}
+
+.caught-image-selected {
+  content:url(../../img/pokeball-icon-selected.svg);
+  width: 2em;
 }
