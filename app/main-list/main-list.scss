@@ -31,6 +31,10 @@ $font-family: 'Helvetica, Arial';
   width: 45%;
 }
 
+#main-list-table > div > table > tbody > tr > td > div > .m-x-auto {
+  width: 2em;
+}
+
 #main-list-table > div > table {
   width: 100%;
 }

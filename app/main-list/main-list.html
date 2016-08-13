@@ -9,14 +9,14 @@
           </td>
           <td>
             <p>Charmander</p>
-            <p><type-tag type-name="Fire"></type-tag></p>
+            <p><type-tag type-name="{{mainList.pokeTypes[1].type.name}}"></type-tag></p>
           </td>
           <td>
             <div style="float:right;">
               #004
               <br><br><br>
-              <img class="m-x-auto" src="../assets/img/star.png">
-              <img style="color: yellow;" class="m-x-auto" src="../assets/img/pokeball-icon.png">
+              <img class="m-x-auto" src="../assets/img/star.svg">
+              <img class="m-x-auto" src="../assets/img/pokeball-icon.svg">
             </div>
           </td>
         </tr>
@@ -32,8 +32,8 @@
             <div style="float:right;">
               #005
               <br><br><br>
-              <img class="m-x-auto" src="../assets/img/star.png">
-              <img style="color: yellow;" class="m-x-auto" src="../assets/img/pokeball-icon.png">
+              <img class="m-x-auto" src="../assets/img/star.svg">
+              <img class="m-x-auto" src="../assets/img/pokeball-icon.svg">
             </div>
           </td>
         </tr>
@@ -43,14 +43,16 @@
           </td>
           <td>
             <p>Charizard</p>
-            <p ng-repeat="pokeType in types"><type-tag type-name="{{pokeType}}"></type-tag></p>
+            <span ng-repeat="pokeType in mainList.pokeTypes">
+              <type-tag type-name="{{pokeType.type.name}}"></type-tag>
+            </span>
           </td>
           <td>
             <div style="float:right;">
               #006
               <br><br><br>
-              <img class="m-x-auto" src="../assets/img/star.png">
-              <img style="color: yellow;" class="m-x-auto" src="../assets/img/pokeball-icon.png">
+              <img class="m-x-auto" src="../assets/img/star.svg">
+              <img class="m-x-auto" src="../assets/img/pokeball-icon.svg">
             </div>
           </td>
         </tr>
