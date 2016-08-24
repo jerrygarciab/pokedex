@@ -25,6 +25,12 @@ body {
   font-family: $font-family-text;
 }
 
+input,
+input::-webkit-input-placeholder {
+    font-size: 18px;
+    line-height: 2;
+}
+
 @media screen and (max-width: 768px) {
     body {
       padding-top: 15%;

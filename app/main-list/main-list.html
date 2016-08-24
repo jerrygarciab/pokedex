@@ -1,14 +1,19 @@
 <nav-bar></nav-bar>
 <div id="main-list-table" class="table-responsive">
-  <div>
+  <div class="form-group row">
+  <div class="col-xs-10">
+    <input class="form-control" type="text" placeholder="Search..." id="search">
+  </div>
+  <div for="search" class="col-xs-2 col-form-label"><i class="fa fa-sort-amount-desc"></i></div>
+  <div class="form-group row">
     <table class="table">
       <tbody>
-        <tr>
+        <tr ng-repeat="info in mainList.receivedPokeData">
           <td>
-            <img class="img-fluid m-x-auto d-block img-thumbnail" src="http://pokeapi.co/media/sprites/pokemon/4.png" alt="Charmander">
+            <img class="img-fluid m-x-auto d-block img-thumbnail" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png" alt="Charmander">
           </td>
           <td>
-            <p>Charmander</p>
+            <p>{{info.name}}</p>
             <p><type-tag type-name="{{mainList.pokeTypes[1].type.name}}"></type-tag></p>
           </td>
           <td>
@@ -20,26 +25,8 @@
             </div>
           </td>
         </tr>
-        <tr>
           <td>
-            <img class="img-fluid m-x-auto d-block img-thumbnail" src="http://pokeapi.co/media/sprites/pokemon/5.png" alt="Charmander">
-          </td>
-          <td>
-            <p>Charmeleon</p>
-            <p><type-tag type-name="Fire"></type-tag></p>
-          </td>
-          <td>
-            <div style="float:right;">
-              #005
-              <br><br><br>
-              <favorite-pkmn></favorite-pkmn>
-              <caught-pkmn></caught-pkmn>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <img class="img-fluid m-x-auto d-block img-thumbnail" src="http://pokeapi.co/media/sprites/pokemon/6.png" alt="Charmander">
+            <img class="img-fluid m-x-auto d-block img-thumbnail" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/6.png" alt="Charmander">
           </td>
           <td>
             <p>Charizard</p>

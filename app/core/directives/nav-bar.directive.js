@@ -6,11 +6,18 @@
 
   function NavBar () {
     var directive = {
-      bindToController: true,
-      controllerAs: 'navbar',
+      link: link,
       restrict: 'E',
       templateUrl: 'core/directives/nav-bar.html'
     };
+
+    function link (scope, element, attrs) {
+      element.bind('click', function () {
+        var btn = $('nav > button#menu-icon > i.fa');
+
+        btn.toggleClass('fa-bars fa-times');
+      });
+    }
 
     return directive;
   }
