@@ -5,13 +5,14 @@
   <title>Pokédex</title>
   <!-- bower:css -->
   <link rel="stylesheet" href="vendor/bootstrap.css" />
+  <link rel="stylesheet" href="vendor/angular-block-ui.css" />
   <!-- endbower -->
 
   <!-- inject:css -->
-  <link rel="stylesheet" href="assets/font-awesome/css/font-awesome.css" />
-  <link rel="stylesheet" href="assets/font-awesome/css/font-awesome.min.css" />
   <link rel="stylesheet" href="assets/css/styles/main-custom.css" />
   <link rel="stylesheet" href="assets/css/styles/main.css" />
+  <link rel="stylesheet" href="assets/font-awesome/css/font-awesome.css" />
+  <link rel="stylesheet" href="assets/font-awesome/css/font-awesome.min.css" />
   <link rel="stylesheet" href="assets/css/font-awesome/scss/font-awesome.css" />
   <!-- endinject -->
 </head>
@@ -27,19 +28,21 @@
   <script src="vendor/angular-ui-router.js""></script>
   <script src="vendor/tether.js""></script>
   <script src="vendor/bootstrap.js""></script>
+  <script src="vendor/angular-block-ui.js""></script>
   <!-- endbower -->
 
   <!-- inject:js -->
   <script src="pokedex.module.js"></script>
   <script src="pokedex.module.spec.js"></script>
   <script src="pokedex.routes.js"></script>
-  <script src="intro/intro.controller.js"></script>
   <script src="main-list/caught-pkmn.directive.js"></script>
   <script src="main-list/favorite-pkmn.directive.js"></script>
   <script src="main-list/main-list.controller.js"></script>
   <script src="main-list/main-list.factory.js"></script>
+  <script src="intro/intro.controller.js"></script>
   <script src="core/directives/nav-bar.directive.js"></script>
   <script src="core/directives/type-tag.directive.js"></script>
+  <script src="core/factories/pkmn-details.factory.js"></script>
   <!-- endinject -->
 </body>
 </html>

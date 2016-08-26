@@ -2,6 +2,7 @@
   'use strict';
 
   angular.module('pokedex', [
-    'ui.router'
+    'ui.router',
+    'blockUI'
   ]);
 })();

@@ -4,8 +4,10 @@
   angular.module('pokedex')
     .controller('mainListCtrl', MainListCtrl);
 
-    function MainListCtrl ($state, mainListFactory) {
+    function MainListCtrl ($state, blockUI, mainListFactory) {
       var vm = this;
+
+      blockUI.start();
 
       mainListFactory.getPokemonList()
         .then(getPokemonListSuccess, getPokemonListFailure);
@@ -13,6 +15,8 @@
       function getPokemonListSuccess (data) {
         console.log(data);
         vm.receivedPokeData = data;
+
+        blockUI.stop();
       }
 
       function getPokemonListFailure (err) {
