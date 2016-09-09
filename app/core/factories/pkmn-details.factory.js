@@ -15,14 +15,14 @@
       return factory;
 
       //***** Main Functions *****//
-      function getPokemonList () {
-        return $http.get(API + 'pokemon/')
+      function getPokemonList (offsetNumber) {
+        return $http.get(API + 'pokemon/?offset=' + offsetNumber)
           .then(getPokemonListSuccess, getPokemonListFailure);
       }
 
       function getPokemonDetailsByName (pkmnName) {
         return $http.get(API + 'pokemon/' + pkmnName + '/')
-          .then(getPokemonListDetailsSuccess, getPokemonListDetailsFailure);
+          .then(getPokemonDetailsByNameSuccess, getPokemonDetailsByNameFailure);
       }
 
 
@@ -35,11 +35,11 @@
         return err;
       }
 
-      function getPokemonListDetailsSuccess (list) {
-        console.log(list);
+      function getPokemonDetailsByNameSuccess (list) {
+        return list;
       }
 
-      function getPokemonListDetailsFailure (err) {
+      function getPokemonDetailsByNameFailure (err) {
         return err;
       }
 

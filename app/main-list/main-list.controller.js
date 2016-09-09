@@ -4,40 +4,36 @@
   angular.module('pokedex')
     .controller('mainListCtrl', MainListCtrl);
 
-    function MainListCtrl ($state, blockUI, mainListFactory) {
+    function MainListCtrl ($state, blockUI, MainListFactory) {
       var vm = this;
 
-      blockUI.start();
+      //blockUI.start();
 
-      mainListFactory.getPokemonList()
-        .then(getPokemonListSuccess, getPokemonListFailure);
-
-      function getPokemonListSuccess (data) {
-        console.log(data);
-        vm.receivedPokeData = data;
-
-        blockUI.stop();
-      }
-
-      function getPokemonListFailure (err) {
-
-      }
-      vm.pokeTypes = [
-        {
-          "slot": 2,
-          "type": {
-            "url": "https://pokeapi.co/api/v2/type/3/",
-            "name": "flying"
-          }
-        },
-        {
-          "slot": 1,
-          "type": {
-            "url": "https://pokeapi.co/api/v2/type/10/",
-            "name": "fire"
-          }
-        }
-      ];
+      // mainListFactory.getPokemonList()
+      //   .then(getPokemonListSuccess, getPokemonListFailure);
+      //
+      // function getPokemonListSuccess (data) {
+      //   console.log(data);
+      //   vm.receivedPokeData = data;
+      //
+      //   blockUI.stop();
+      // }
+      //
+      // function getPokemonListFailure (err) {
+      //
+      // }
+      MainListFactory.getPkmnDetails(0)
+        .then(getPkmnDetailsSuccess, getPkmnDetailsFailure);
 
     }
+
+    // ***** Auxiliary Functions ***** //
+    function getPkmnDetailsSuccess (pkmnObject) {
+      console.log(pkmnObject);
+    }
+
+    function getPkmnDetailsFailure (err) {
+      console.log(err);
+    }
+
 })();

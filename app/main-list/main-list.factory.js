@@ -2,14 +2,13 @@
   'use strict';
 
   angular.module('pokedex')
-    .factory('mainListFactory', MainListFactory);
+    .factory('MainListFactory', MainListFactory);
 
     function MainListFactory (PkmnDetailsFactory) {
 
       var pkmnDetails = {};
 
       var factory = {
-        getPokemonList: getPokemonList,
         getPkmnDetails: getPkmnDetails
       };
 
@@ -21,33 +20,32 @@
           .then(getPkmnDetailsSuccess, getPkmnDetailsFailure);
       }
 
-      function getPokemonList () {
-        return PkmnDetailsFactory.getPokemonList().then(getPokemonListSuccess);
-      }
+      //***** Auxiliary Functions *****// return list.data.results;
+      function getPkmnDetailsSuccess (list) {
+        var pkmnObject = list.data.results;
 
-      //***** Bussiness logic Functions *****//
-      function getPokemonDetailsFromList (pkmnObject) {
         for (var i=0; i<pkmnObject.length; i++) {
-          for(var j=0; j<pkmnObject[i].length; j++) {
-            factory.getPokemonDetailsByName(pkmnObject[i][j].name);
-          }
+          return PkmnDetailsFactory.getPokemonDetailsByName(pkmnObject[i].name)
+            .then(getPokemonDetailsByNameSuccess, getPokemonDetailsByNameFailure);
         }
-      }
-
-      //***** Auxiliary Functions *****//
-      function getPkmnDetailsSuccess (data) {
-        return data;
       }
 
       function getPkmnDetailsFailure (err) {
         return err;
       }
 
-      function getPokemonListSuccess (list) {
-        return list.data.results;
+      function getPokemonDetailsByNameSuccess (data) {
+        pkmnDetails.push({
+          sprite: data.sprites.front_default,
+          name: data.name,
+          number: data.id,
+          types: data.types
+        });
+
+        return pkmnDetails;
       }
 
-      function getPokemonListFailure (err) {
+      function getPokemonDetailsByNameFailure (err) {
         return err;
       }
 
